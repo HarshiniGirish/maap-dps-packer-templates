@@ -1,5 +1,5 @@
 # hysds-packer-templates
-Packer templates for HySDS.
+Packer templates for HySDS. The MAAP modifications adapts HySDS 3.0.4 to run in the GCC environment. There are several worksarounds to bugs with the deployment as well. In order to properly build for MAAP, `build_aws.sh` needs to be updated to build `mozart`, `grq`, and `autoscale` individually with the `hysds_aws.json` file associated with those components.
 
 ## Requisites
 - Install packer: https://packer.io/

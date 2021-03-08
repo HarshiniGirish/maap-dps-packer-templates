@@ -63,7 +63,7 @@
         "sudo yum install -y epel-release",
         "sudo yum -y update",
         "sudo yum -y install puppet puppet-firewalld nscd ntp wget curl subversion git vim screen",
-        "sudo yum -y install python3 python3-future python3-requests python3-virtualenv python3-numpy python36-Cython", 
+        "sudo yum -y install python3 python3-future python3-requests python3-virtualenv python3-numpy python36-Cython",
         "sudo rm -f /usr/bin/python",
         "sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1",
         "sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2",
@@ -82,7 +82,7 @@
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
       "inline": [
         "cd /tmp",
-        "curl -skLO https://raw.githubusercontent.com/hysds/puppet-{{ user `hysds_component` }}/master/install.sh",
+        "curl -skL -o install.sh https://raw.githubusercontent.com/MAAP-Project/maap-dps-installers/master/install-{{ user `hysds_component` }}.sh",
         "chmod 755 /tmp/install.sh",
         "./install.sh",
         "reboot",

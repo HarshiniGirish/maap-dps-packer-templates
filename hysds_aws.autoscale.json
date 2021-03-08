@@ -96,7 +96,12 @@
       "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -u ops -E sh '{{ .Path }}'",
       "inline": [
         "cd /home/ops",
-        "./install_hysds.sh v3.0.4"
+        "./install_hysds.sh v3.0.4",
+        "mkdir -p /home/ops/.aws",
+        "rm -f /home/ops/.aws/credentials",
+        "printf '[default]\nregion = us-west-2' > /home/ops/.aws/config",
+        "ln -s /home/ops/verdi/ops/hysds/scripts/harikiri.py /home/ops/verdi/bin/harikiri.py",
+        "ln -s /home/ops/verdi/ops/hysds/scripts/spot_termination_detector.py /home/ops/verdi/bin/spot_termination_detector.py"
       ]
     }
   ]
